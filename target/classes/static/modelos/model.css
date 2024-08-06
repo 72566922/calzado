@@ -1,0 +1,25 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+.selected-brand {
+    background-color: white;
+    color: black;
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.product h4 {
+    margin: 0;
+}
+
+.product p {
+    margin: 5px 0;
+}
+

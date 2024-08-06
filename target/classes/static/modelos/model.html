@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="model.css">
+    <title>Busca tu modelo acá</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .selected-brand {
+            background-color: white;
+            color: black;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product h4 {
+            margin: 0;
+        }
+
+        .product p {
+            margin: 5px 0;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+        .loading-indicator {
+            text-align: center;
+            margin: 20px 0;
+            color: #fff;
+        }
+
+        .loading-indicator::after {
+            content: "Cargando...";
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                padding: 8px;
+                margin-bottom: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Contenido del encabezado -->
+    </header>
+    <section class="container mt-5">
+        <div class="text-center mb-4">
+            <h2>Busca tu modelo por marca</h2>
+        </div>
+
+        <div class="d-flex justify-content-between mb-4">
+            <button class="btn btn-primary" id="btnNike">NIKE</button>
+            <button class="btn btn-primary" id="btnPuma">PUMA</button>
+            <button class="btn btn-primary" id="btnReebok">REEBOK</button>
+            <button class="btn btn-primary" id="btnJordan">JORDAN</button>
+            <button class="btn btn-primary" id="btnAdidas">ADIDAS</button>
+        </div>
+
+        <!-- Formulario NIKE -->
+        <div id="formNike" class="collapse mt-4">
+            <form id="searchFormNike" class="border p-3">
+                <fieldset>
+                    <legend>Buscar NIKE</legend>
+                    <label for="codeNike">Código</label>
+                    <input type="text" id="codeNike" name="code" class="form-control" placeholder="Ingrese el código">
+
+                    <div>
+                        <label><input type="radio" name="gender" value="todo"> Todo</label>
+                        <label><input type="radio" name="gender" value="varon"> Hombre</label>
+                        <label><input type="radio" name="gender" value="mujer"> Mujer</label>
+                        <label><input type="radio" name="gender" value="unisex"> Unisex</label>
+                    </div>
+
+                    <button type="button" class="btn btn-success mt-2" id="searchNike">Buscar</button>
+                </fieldset>
+            </form>
+            <div id="resultsNike" class="mt-4">
+                <!-- Los productos NIKE se mostrarán aquí -->
+            </div>
+        </div>
+
+        <!-- Formulario PUMA -->
+        <div id="formPuma" class="collapse mt-4">
+            <form id="searchFormPuma" class="border p-3">
+                <fieldset>
+                    <legend>Buscar PUMA</legend>
+                    <label for="codePuma">Código</label>
+                    <input type="text" id="codePuma" name="code" class="form-control" placeholder="Ingrese el código">
+
+                    <div>
+                        <label><input type="radio" name="gender" value="todo"> Todo</label>
+                        <label><input type="radio" name="gender" value="varon"> Hombre</label>
+                        <label><input type="radio" name="gender" value="mujer"> Mujer</label>
+                        <label><input type="radio" name="gender" value="unisex"> Unisex</label>
+                    </div>
+
+                    <button type="button" class="btn btn-success mt-2" id="searchPuma">Buscar</button>
+                </fieldset>
+            </form>
+            <div id="resultsPuma" class="mt-4">
+                <!-- Los productos PUMA se mostrarán aquí -->
+            </div>
+        </div>
+
+        <!-- Formulario REEBOK -->
+        <div id="formReebok" class="collapse mt-4">
+            <form id="searchFormReebok" class="border p-3">
+                <fieldset>
+                    <legend>Buscar REEBOK</legend>
+                    <label for="codeReebok">Código</label>
+                    <input type="text" id="codeReebok" name="code" class="form-control" placeholder="Ingrese el código">
+
+                    <div>
+                        <label><input type="radio" name="gender" value="todo"> Todo</label>
+                        <label><input type="radio" name="gender" value="varon"> Hombre</label>
+                        <label><input type="radio" name="gender" value="mujer"> Mujer</label>
+                        <label><input type="radio" name="gender" value="unisex"> Unisex</label>
+                    </div>
+
+                    <button type="button" class="btn btn-success mt-2" id="searchReebok">Buscar</button>
+                </fieldset>
+            </form>
+            <div id="resultsReebok" class="mt-4">
+                <!-- Los productos REEBOK se mostrarán aquí -->
+            </div>
+        </div>
+
+        <!-- Formulario JORDAN -->
+        <div id="formJordan" class="collapse mt-4">
+            <form id="searchFormJordan" class="border p-3">
+                <fieldset>
+                    <legend>Buscar JORDAN</legend>
+                    <label for="codeJordan">Código</label>
+                    <input type="text" id="codeJordan" name="code" class="form-control" placeholder="Ingrese el código">
+
+                    <div>
+                        <label><input type="radio" name="gender" value="todo"> Todo</label>
+                        <label><input type="radio" name="gender" value="varon"> Hombre</label>
+                        <label><input type="radio" name="gender" value="mujer"> Mujer</label>
+                        <label><input type="radio" name="gender" value="unisex"> Unisex</label>
+                    </div>
+
+                    <button type="button" class="btn btn-success mt-2" id="searchJordan">Buscar</button>
+                </fieldset>
+            </form>
+            <div id="resultsJordan" class="mt-4">
+                <!-- Los productos JORDAN se mostrarán aquí -->
+            </div>
+        </div>
+
+        <!-- Formulario ADIDAS -->
+        <div id="formAdidas" class="collapse mt-4">
+            <form id="searchFormAdidas" class="border p-3">
+                <fieldset>
+                    <legend>Buscar ADIDAS</legend>
+                    <label for="codeAdidas">Código</label>
+                    <input type="text" id="codeAdidas" name="code" class="form-control" placeholder="Ingrese el código">
+
+                    <div>
+                        <label><input type="radio" name="gender" value="todo"> Todo</label>
+                        <label><input type="radio" name="gender" value="varon"> Hombre</label>
+                        <label><input type="radio" name="gender" value="mujer"> Mujer</label>
+                        <label><input type="radio" name="gender" value="unisex"> Unisex</label>
+                    </div>
+
+                    <button type="button" class="btn btn-success mt-2" id="searchAdidas">Buscar</button>
+                </fieldset>
+            </form>
+            <div id="resultsAdidas" class="mt-4">
+                <!-- Los productos ADIDAS se mostrarán aquí -->
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="getBusqueda.js"></script>
+    <script src="displayProducts.js"></script>
+    <script src="events.js"></script>
+</body>
+
+</html>

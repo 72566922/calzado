@@ -1,0 +1,1 @@
+//C:\Users\Jhordan\Desktop\KevinMorales\proyectTienda\appTienda\inicio\imagenes
